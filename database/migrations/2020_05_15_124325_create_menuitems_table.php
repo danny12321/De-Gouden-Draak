@@ -18,7 +18,7 @@ class CreateMenuitemsTable extends Migration
             $table->string('menunumber');
             $table->string('name');
             $table->decimal('price', 6, 2);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->boolean('specialty');
             $table->unsignedBigInteger('menuitem_type_id');
 
