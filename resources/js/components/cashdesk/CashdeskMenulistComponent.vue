@@ -1,23 +1,39 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
+    <div class="m-cashdesk__menu">
+        <div v-for="(menutypes, key, index) in mutableMenuitems">
+            <h3>
+               {{mutableMenuitems[key][0].menuitem_type.type}}
+            </h3>
+            <ul>
+                <li v-for="menuitem in menutypes">
+                    {{menuitem.menunumber}}. {{menuitem.name}} €{{menuitem.price}} <button v-on:click="$emit('add-menuitem', menuitem)">Toevoegen</button>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        props: ['menuitems'],
+        methods: {
+            generateMenuObject(menuitems) {
+                let menuObject = {}
+                menuitems.forEach(item => {
+                    if(typeof menuObject[item['menuitem_type_id']] === 'undefined') {
+                        menuObject[item['menuitem_type_id']] = [item]
+                    } else {
+                        menuObject[item['menuitem_type_id']].push(item)
+                    }
+                });
+
+                return menuObject
+            }
+        },
+        data() {
+            return {
+                mutableMenuitems: this.generateMenuObject(JSON.parse(this.menuitems))
+            }
         }
     }
 </script>

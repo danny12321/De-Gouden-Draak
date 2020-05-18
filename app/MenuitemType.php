@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\MenuitemType;
 
-class MenuitemTypes extends Model
+class MenuitemType extends Model
 {
     //
 

@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('cashdesk', require('./components/cashdesk/CashdeskComponent.vue').default);
 Vue.component('cashdeskmenulist', require('./components/cashdesk/CashdeskMenulistComponent.vue').default);
+Vue.component('cashdesk-order-component', require('./components/cashdesk/CashdeskOrderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

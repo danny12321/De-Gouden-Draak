@@ -9,6 +9,6 @@ class Menuitem extends Model
     //
     public function MenuitemType()
     {
-        return $this->hasOne('App\MenuitemTypes', 'id', 'menuitem_type_id');
+        return $this->hasOne('App\MenuitemType', 'id', 'menuitem_type_id');
     }
 }

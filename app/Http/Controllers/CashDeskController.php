@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Menuitem;
 
 class CashDeskController extends Controller
 {
@@ -13,6 +14,9 @@ class CashDeskController extends Controller
 
     public function index()
     {
-        return view('cashdesk');
+        return view('cashdesk', [
+                'menuitems' => Menuitem::with('MenuitemType')->get()
+            ]
+        );
     }
 }

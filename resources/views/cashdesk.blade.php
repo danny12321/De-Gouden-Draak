@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.cashdesk')
 
 @section('content')
     @include('inc.cashdesknav')
-    <cashdesk></cashdesk>
-    <h1>CashDesk</h1>
+    <cashdesk menuitems="{{json_encode($menuitems)}}"></cashdesk>
 @endsection
