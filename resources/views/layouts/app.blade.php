@@ -36,9 +36,9 @@
                         <h1>De Gouden Draak</h1>
 
                         <div class="m-frontend__container__nav__center__menu">
-                            <a href="" class="m-frontend__container__nav__center__menu__item">Menukaart</a>
-                            <a href="" class="m-frontend__container__nav__center__menu__item">Nieuws</a>
-                            <a href="" class="m-frontend__container__nav__center__menu__item">Contact</a>
+                            <a href="{{ route('home') }}" class="m-frontend__container__nav__center__menu__item">Menukaart</a>
+                            <a href="{{ route('home') }}" class="m-frontend__container__nav__center__menu__item">Nieuws</a>
+                            <a href="{{ route('contact') }}" class="m-frontend__container__nav__center__menu__item">Contact</a>
                         </div>
                     </div>
                     <img src="/pictures/dragon-small-flipped.png" class="m-frontend__container__nav__img">
