@@ -1,3 +1,11 @@
 .l-sales {
-    
+
+    &__sale {
+        border: 1px solid black;
+        background: floralwhite;
+        padding: 20px;
+        margin: 20px auto;
+        width: 600px;
+        text-align: center;
+    }
 }
