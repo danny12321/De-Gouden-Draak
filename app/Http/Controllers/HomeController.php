@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Sales;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $today = Carbon::today()->toDateString();
+        return view('home', [
+            'sales' => Sales::whereDate('end_date', '>', $today)->whereDate('start_date', '<', $today)->get()
+        ]);
     }
 }
