@@ -1,0 +1,31 @@
+.l-menu {
+
+    &__group {
+        list-style-type:none;
+
+        &__type {
+            margin-top: 60px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &__item {
+            border-bottom: 2px dotted black;
+            text-align: right;
+            margin-top: 5px;
+            line-height: 1em;
+
+            &__name {
+                float: left;
+            }
+
+            span {
+                display: inline-block;
+                border: 2px solid floralwhite;
+                margin: 0 0 -2px 0;
+            }
+        }
+    }
+}

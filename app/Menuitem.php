@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Menuitem extends Model
 {
     //
+    public function MenuitemType()
+    {
+        return $this->hasOne('App\MenuitemTypes', 'id', 'menuitem_type_id');
+    }
 }
