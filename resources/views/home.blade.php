@@ -4,7 +4,7 @@
     <div class="l-sales">
 
         @foreach ($sales as $sale)
-            <div class="l-sales__sale">
+            <div class="m-paper l-sales__sale">
                 <h1>{{ $sale->Menuitem->name }}</h1>
                 <div>{{ $sale->Menuitem->description }}</div>
 
