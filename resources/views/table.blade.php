@@ -2,5 +2,5 @@
 
 @section('content')
     @include('inc.cashdesknav')
-    <h1>Dishes</h1>
+    <tables :tablesprops="{{json_encode($tables)}}"></tables>
 @endsection

@@ -1,18 +1,19 @@
 <template>
-    <div class="container m-cashdesk__order">
-        <div class="m-cashdesk__order__list">
+    <div class="container m-cashdesk__gridcontainer__order">
+        <div class="m-cashdesk__gridcontainer__order__list">
             <h3>Bestelling</h3>
             <ul>
-                <li v-for="orders in orderItems">
+                <li v-for="orders in orderItems" v-bind:key="orders.id">
                     {{orders.menuitem.menunumber}}. {{orders.menuitem.name}} €{{(orders.menuitem.price * orders.amount).toFixed(2)}} <input type="number" min="1" v-model="orders.amount" @change="setTotalPrice">
                 </li>
             </ul>
         </div>
 
-        <div class="m-cashdesk__order__total">
+        <div class="m-cashdesk__gridcontainer__order__total">
             <h2>Totaal</h2> <h2>€{{totalPrice}}</h2>
             <button v-on:click="$emit('delete-order')">Alles verwijderen</button>
-        </div>
+            <button class="order-button" v-on:click="$emit('create-order')">Bestellen</button>
+        </div> 
     </div>
 </template>
 

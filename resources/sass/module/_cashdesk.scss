@@ -1,34 +1,38 @@
 .m-cashdesk {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    margin: 0 20px;
 
-    &__menu {
-        h3 {
-            text-align: center;
-        }
-        ul {
-            list-style-type: none;
-        }
-    }
+    &__gridcontainer {
 
-    &__order {
-        &__list {
-            border: 1px solid gray;
-            height: 400px;
-            overflow-y: auto;
-
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        margin: 0 20px;
+    
+        &__menu {
+            h3 {
+                text-align: center;
+            }
             ul {
                 list-style-type: none;
             }
-
-            input {
-                width: 40px;
+        }
+    
+        &__order {
+            &__list {
+                border: 1px solid gray;
+                height: 400px;
+                overflow-y: auto;
+    
+                ul {
+                    list-style-type: none;
+                }
+    
+                input {
+                    width: 40px;
+                }
             }
         }
-    }
-
-    &__total {
-
+    
+        &__total {
+    
+        }
     }
 }

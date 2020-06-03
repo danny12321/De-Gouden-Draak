@@ -19,6 +19,9 @@ Auth::routes();
 Route::get('/kassa', 'CashDeskController@index')->name('cashdesk');
 Route::get('/kassa/gerechten', 'DishesController@index')->name('dishes');
 Route::get('/kassa/sales', 'SalesoverviewController@index')->name('salesoverview');
+Route::get('/kassa/tafels', 'TableController@index')->name('table');
+Route::post('/kassa/tafel/{table}/store_guest', 'GuestsController@store')->name('guest_store');
+Route::post('/kassa/order/{table}', 'OrdersController@store')->name('order_store');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/contact', function() {

@@ -1,11 +1,11 @@
 <template>
-    <div class="m-cashdesk__menu">
-        <div v-for="(menutypes, key, index) in mutableMenuitems">
+    <div class="m-cashdesk__gridcontainer__menu">
+        <div v-for="(menutypes, key, index) in mutableMenuitems" v-bind:key="index">
             <h3>
                {{mutableMenuitems[key][0].menuitem_type.type}}
             </h3>
             <ul>
-                <li v-for="menuitem in menutypes">
+                <li v-for="menuitem in menutypes" v-bind:key="menuitem.id">
                     {{menuitem.menunumber}}. {{menuitem.name}} €{{menuitem.price}} <button v-on:click="$emit('add-menuitem', menuitem)">Toevoegen</button>
                 </li>
             </ul>
