@@ -26,6 +26,32 @@
                 border: 2px solid floralwhite;
                 margin: 0 0 -2px 0;
             }
+
+            i{
+                transition: 300ms;
+
+                &.favorite {
+                    color: gold;
+                    transform: rotate(360deg) scale(1.1);
+                    animation: favoriteGlow infinite 6s linear;
+                }
+            }
         }
+    }
+}
+
+@keyframes favoriteGlow {
+    0% {
+        text-shadow: 0 0 0 gold;
+        transform: rotate(0) scale(1);
+    }
+    50% {
+        text-shadow: 0 0 4px gold;
+        transform: rotate(180deg) scale(1.2);
+
+    }
+    100% {
+        text-shadow: 0 0 0 gold;
+        transform: rotate(360deg) scale(1);
     }
 }

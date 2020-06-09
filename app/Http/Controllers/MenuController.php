@@ -11,7 +11,7 @@ class MenuController extends Controller
     public function index()
     {
         return view('menu', [
-            'menuitems' => Menuitem::all()
+            'menuitems' => Menuitem::with('MenuitemType')->get()
         ]);
     }
 }
