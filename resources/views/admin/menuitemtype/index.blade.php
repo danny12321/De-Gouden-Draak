@@ -2,22 +2,20 @@
 
 @section('content')
     <div class="container">
-        <h1>Gerechten</h1>
-        <a href="{{ route('admin.dishes.create') }}">Voeg menu item toe</a>
+        <h1>Categorieën</h1>
+        <a href="{{ route('admin.menuitemtype.create') }}">Voeg menu item toe</a>
         
         <table>
             <tr>
-                <th>Nummer</th>
                 <th>Naam</th>
                 <th></th>
             </tr>
         
-            @foreach ($menuitems as $item)
+            @foreach ($menuitemtypes as $item)
                 <tr>
-                    <td>{{ $item->menunumber }}</td>
-                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->type }}</td>
                     <td>
-                        <a href="{{route('admin.dishes.edit', ['menuitem' => $item->id])}}">
+                        <a href="{{route('admin.menuitemtype.edit', ['menuitemtype' => $item->id])}}">
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
