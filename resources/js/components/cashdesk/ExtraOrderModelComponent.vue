@@ -11,18 +11,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <ul>
-                            <li v-for="menuitem in extraMenuitems" v-bind:key="menuitem.id" >
+                            <div v-for="menuitem in extraMenuitems" v-bind:key="menuitem.id" >
                                 <div>
                                     <input type="checkbox" v-model="menuitem.checked" v-bind:id="menuitem.name" v-bind:name="menuitem.name">
                                     <label v-bind:for="menuitem.name"> {{menuitem.name}}</label>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluit</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addExtraOrders">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addExtraOrders">Voeg toe</button>
                     </div>
                 </div>
             </div>

@@ -33,16 +33,26 @@
                 document.querySelector('.order-button').disabled = true
 
                 let order = this.menuOrderItems.map(m => {
+                    let extraOrder = [];
+                    if('extraOrder' in m) {
+                        extraOrder = m.extraOrder.map(eo => {
+                            return {
+                                menuitem_id: eo.id,
+                            }
+                        })
+                    }
+
                     return {
                         amount: m.amount,
                         description: m.description,
                         menuitem_id: m.menuitem.id,
+                        extraOrder,
                     }
                 })
                 axios.post(`/kassa/order/${this.activeTable}`, { order })
                 .then(res => {
                     alert("Bestelling geplaatst")
-                    location.reload();
+                    location.reload()
                 })
             },
             deleteItem(event, orders, index) {

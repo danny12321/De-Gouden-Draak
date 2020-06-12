@@ -17,7 +17,7 @@ class CashDeskController extends Controller
     {
         return view('cashdesk', [
                 'menuitems' => Menuitem::with('MenuitemType')->get(),
-                'tables' => Table::with('latestGuest')->get(),
+                'tables' => Table::with('latestGuest')->get()->whereNotNull('latestGuest'),
             ]
         );
     }

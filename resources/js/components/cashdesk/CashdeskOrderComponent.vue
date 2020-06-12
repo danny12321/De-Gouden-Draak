@@ -15,7 +15,7 @@
                     <ul>
                         <li v-for="extraOrder in orders.extraOrder" v-bind:key="extraOrder.id">
                             {{extraOrder.name}}
-                            {{(extraOrder.price * orders.amount).toFixed(2)}}
+                            €{{(extraOrder.price * orders.amount).toFixed(2)}}
                         </li>
                     </ul>
                     <textarea class="m-cashdesk__gridcontainer__order__list__item__description" name="description" v-model="orders.description"></textarea>
