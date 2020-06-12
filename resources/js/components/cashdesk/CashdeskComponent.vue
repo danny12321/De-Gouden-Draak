@@ -9,8 +9,10 @@
 
             <div class="m-cashdesk__gridcontainer">
                 <cashdeskmenulist :menuitems="menuitems" @add-menuitem="addMenuitemToOrder"></cashdeskmenulist>
-                <cashdesk-order-component :orderItems="menuOrderItems" @delete-order="deleteOrder" @create-order="createOrder" @delete-item="deleteItem"></cashdesk-order-component>
+                <cashdesk-order-component :renderComp="renderComponent" :orderItems="menuOrderItems" @show-extra-ordermodel="showExtraOrderModel" @delete-order="deleteOrder" @create-order="createOrder" @delete-item="deleteItem"></cashdesk-order-component>
             </div>
+
+            <model-component @add-extra-order="addExtraOrder" :orderItemIndex="extraOrderItemIndex" :menuitems="menuitems" />
         </div>
 </template>
 
@@ -45,12 +47,33 @@
             },
             deleteItem(event, orders, index) {
                 this.menuOrderItems.splice(index, 1)
+            },
+            showExtraOrderModel(event, index) {
+                this.extraOrderItemIndex = index
+                window.$("#extraOrderModel").modal()
+            },
+            addExtraOrder(extraOrder) {
+                if(Number.isInteger(this.extraOrderItemIndex)) {
+                    this.menuOrderItems[this.extraOrderItemIndex].extraOrder = extraOrder
+                    this.forceRerender()
+                }
+            },
+            forceRerender() {
+                // Remove my-component from the DOM
+                this.renderComponent = false;
+
+                this.$nextTick(() => {
+                    // Add the component back in
+                    this.renderComponent = "banaan";
+                });
             }
         },
         data() {
             return {
                 menuOrderItems: [],
                 activeTable: 1,
+                extraOrderItemIndex: null,
+                renderComponent: true,
             }
         },
         

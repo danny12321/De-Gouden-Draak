@@ -19,5 +19,9 @@ class MenuitemTypeSeeder extends Seeder
         DB::table('menuitem_types')->insert([
             'type' => 'Voorgerechten'
         ]);
+
+        DB::table('menuitem_types')->insert([
+            'type' => 'Extra gerecht'
+        ]);
     }
 }
