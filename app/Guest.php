@@ -8,6 +8,7 @@ class Guest extends Model
 {
     protected $fillable = [
         'table_id',
+        'name'
     ];
 
     public $timestamps = false;
