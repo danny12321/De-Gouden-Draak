@@ -37,6 +37,9 @@ Route::get('/admin/menuitemtype/{menuitemtype}/edit', 'Admin\MenuItemTypeControl
 Route::put('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@update')->name('admin.menuitemtype.update');
 Route::delete('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@destroy')->name('admin.menuitemtype.delete');
 
+Route::get('/order', 'OrderController@index')->name('order');
+
+
 Route::get('/contact', function() {
     return view('contact');
 })->name('contact');
