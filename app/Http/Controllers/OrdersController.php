@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Orderline;
 use App\Order;
 use App\Table;
 
@@ -12,25 +13,29 @@ class OrdersController extends Controller
     {
         $guestId = $table->lastGuest()->id;
 
-        foreach(request('order') as $order) {
+        $order = Order::create([
+            'guest_id' => $guestId,
+        ]);
 
-            if(!array_key_exists('description', $order)) {
-                $order['description'] = null;
+        foreach(request('order') as $orderrequest) {
+
+            if(!array_key_exists('description', $orderrequest)) {
+                $orderrequest['description'] = null;
             }
 
-            Order::create([
-                'amount' => $order['amount'],
-                'description' => $order['description'],
-                'menuitem_id' => $order['menuitem_id'],
-                'guest_id' => $guestId,
+            Orderline::create([
+                'amount' => $orderrequest['amount'],
+                'description' => $orderrequest['description'],
+                'menuitem_id' => $orderrequest['menuitem_id'],
+                'order_id' => $order->id,
             ]);
 
-            foreach($order['extraOrder'] as $extraOrder) {
-                Order::create([
-                    'amount' => $order['amount'],
+            foreach($orderrequest['extraOrder'] as $extraOrder) {
+                Orderline::create([
+                    'amount' => $orderrequest['amount'],
                     'description' => null,
                     'menuitem_id' => $extraOrder['menuitem_id'],
-                    'guest_id' => $guestId,
+                    'order_id' => $order->id,
                 ]);
             }
         }

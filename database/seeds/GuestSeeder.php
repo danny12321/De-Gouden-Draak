@@ -14,7 +14,7 @@ class GuestSeeder extends Seeder
     {
         DB::table('guests')->insert([
             'table_id' => 1,
-            'created_at' => Carbon::create('2020', '01', '01')
+            'created_at' => Carbon::create('2020', '01', '01'),
         ]);
     }
 }

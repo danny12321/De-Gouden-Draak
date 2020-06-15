@@ -52,7 +52,7 @@
                 axios.post(`/kassa/order/${this.activeTable}`, { order })
                 .then(res => {
                     alert("Bestelling geplaatst")
-                    location.reload()
+                    // location.reload()
                 })
             },
             deleteItem(event, orders, index) {
