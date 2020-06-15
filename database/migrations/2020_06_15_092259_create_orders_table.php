@@ -15,13 +15,8 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            $table->dateTime('created_at', 0);
-            $table->text('description')->nullable();
-            $table->unsignedBigInteger('menuitem_id');
             $table->unsignedBigInteger('guest_id')->nullable();
 
-            $table->foreign('menuitem_id')->references('id')->on('menuitems')->onDelete('cascade');
             $table->foreign('guest_id')->references('id')->on('guests')->onDelete('cascade');
         });
     }
@@ -33,6 +28,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('order');
     }
 }
