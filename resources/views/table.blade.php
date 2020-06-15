@@ -1,5 +1,5 @@
 @extends('layouts.cashdesk')
 
 @section('content')
-    <h1>Sales overview</h1>
+    <tables :tablesprops="{{json_encode($tables)}}"></tables>
 @endsection

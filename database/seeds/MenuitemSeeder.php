@@ -36,5 +36,45 @@ class MenuitemSeeder extends Seeder
             'specialty' => false,
             'menuitem_type_id' => 2
         ]);
+
+        DB::table('menuitems')->insert([
+            'menunumber' => '50',
+            'name' => 'Witte rijst',
+            'price' => 1.5,
+            'specialty' => false,
+            'menuitem_type_id' => 3
+        ]);
+
+        DB::table('menuitems')->insert([
+            'menunumber' => '51',
+            'name' => 'Nasi',
+            'price' => 1.7,
+            'specialty' => false,
+            'menuitem_type_id' => 3
+        ]);
+
+        DB::table('menuitems')->insert([
+            'menunumber' => '52',
+            'name' => 'Bami Goreng',
+            'price' => 1.7,
+            'specialty' => false,
+            'menuitem_type_id' => 3
+        ]);
+
+        DB::table('menuitems')->insert([
+            'menunumber' => '53',
+            'name' => 'Mihoen Goreng',
+            'price' => 1.5,
+            'specialty' => false,
+            'menuitem_type_id' => 3
+        ]);
+
+        DB::table('menuitems')->insert([
+            'menunumber' => '53',
+            'name' => 'Chinese Bami',
+            'price' => 1.2,
+            'specialty' => false,
+            'menuitem_type_id' => 3
+        ]);
     }
 }

@@ -22,6 +22,10 @@ Route::get('/menu', 'MenuController@index')->name('menu');
 Route::get('/kassa', 'CashDeskController@index')->name('cashdesk');
 Route::get('/kassa/gerechten', 'DishesController@index')->name('dishes');
 Route::get('/kassa/sales', 'SalesoverviewController@index')->name('salesoverview');
+Route::get('/kassa/tafels', 'TableController@index')->name('table');
+Route::post('/kassa/tafel/{table}/store_guest', 'GuestsController@store')->name('guest_store');
+Route::post('/kassa/order/{table}', 'OrdersController@store')->name('order_store');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'Admin\DishesController@index')->name('admin.dishes');
 Route::get('/admin/dishes/create', 'Admin\DishesController@create')->name('admin.dishes.create');
@@ -38,7 +42,6 @@ Route::put('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@u
 Route::delete('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@destroy')->name('admin.menuitemtype.delete');
 
 Route::get('/order', 'OrderController@index')->name('order');
-
 
 Route::get('/contact', function() {
     return view('contact');
