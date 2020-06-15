@@ -25,6 +25,7 @@ Vue.component('cashdeskmenulist', require('./components/cashdesk/CashdeskMenulis
 Vue.component('cashdesk-order-component', require('./components/cashdesk/CashdeskOrderComponent.vue').default);
 Vue.component('tables', require('./components/cashdesk/TableComponent.vue').default);
 Vue.component('model-component', require('./components/cashdesk/ExtraOrderModelComponent.vue').default);
+Vue.component('tablet-component', require('./components/tablet/TabletComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
