@@ -1,0 +1,101 @@
+.m-frontend {
+    background-color: darkred;
+    min-height: 100vh;
+    padding: 15px 50px;
+
+    &__container {
+        background-color: red;
+        height: 100%;
+
+        &__header {
+            display: flex;
+
+            &__logo {
+                display: flex;
+                align-items: center;
+
+                &__img {
+                    height: 50px;
+                }
+
+                span {
+                    color: yellow;
+                    font-size: 30px;
+                    text-align: center;
+                    font-family: "chinese_takeawayregular";
+                }
+
+                @media only screen and (max-width: 1200px) {
+                    span {
+                        display: none;
+                    }
+
+                    &:first-child {
+                        img:last-child {
+                            display: none;
+                        }
+                    }
+
+                    &:last-child {
+                        img:first-child {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            &__marquee {
+                flex: 1;
+                display: flex;
+                align-items: center;
+
+                a {
+                    font-weight: bold;
+                    text-decoration: none;
+                    width: 100%;
+
+                    marquee {
+                        color: yellow;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        &__nav {
+            margin: 30px 0;
+            display: flex;
+            color: yellow;
+
+            &__center {
+                flex: 1;
+                text-align: center;
+                margin: auto;
+
+                &__menu {
+                    &__item {
+                        text-decoration: none;
+                        color: white;
+                        background-color: blue;
+                        background-image: linear-gradient(to top, rgb(24, 118, 241), lightblue);
+                        padding: 2px 30px;
+                        outline: grey;
+                    }
+                }
+            }
+
+            &__img {
+                height: 200px;
+
+                @media only screen and (max-width: 1200px) {
+                    display: none;
+                }
+            }
+        }
+
+        &__content {
+            margin: 20px 5px;
+            padding: 10px;
+        }
+    }
+}
