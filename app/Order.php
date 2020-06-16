@@ -20,4 +20,9 @@ class Order extends Model
             $model->created_at = $model->freshTimestamp();
         });
     }
+
+    public function orderlines()
+    {
+        return $this->hasMany('App\Orderline', 'order_id', 'id');
+    }
 }

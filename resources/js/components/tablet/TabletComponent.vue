@@ -7,15 +7,17 @@
             </div>
 
             <model-component @add-extra-order="addExtraOrder" :orderItemIndex="extraOrderItemIndex" :menuitems="menuitems" />
+
+            <order-history-component :orders="orders" @add-history-order="addHistoryOrder"/>
         </div>
 </template>
 
 <script>
     export default {
-        props: ['menuitems', 'table'],
+        props: ['menuitems', 'table', 'orders'],
         methods: {
-            addMenuitemToOrder(menuitem) {
-                this.menuOrderItems.push({menuitem, amount: 1})
+            addMenuitemToOrder(menuitem, amount = 1) {
+                this.menuOrderItems.push({menuitem, amount})
             },
             changeTable(event) {
                 this.activeTable = parseInt(event.target.value)
@@ -73,6 +75,12 @@
                 this.$nextTick(() => {
                     // Add the component back in
                     this.renderComponent = "banaan";
+                });
+            },
+            addHistoryOrder(order) {
+                console.log(order)
+                order.orderlines.forEach(orderline => {
+                    this.addMenuitemToOrder(orderline.menuitem, orderline.amount)
                 });
             }
         },

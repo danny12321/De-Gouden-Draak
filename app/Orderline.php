@@ -23,4 +23,9 @@ class Orderline extends Model
             $model->created_at = $model->freshTimestamp();
         });
     }
+
+    public function menuitem()
+    {
+        return $this->hasOne('App\Menuitem', 'id', 'menuitem_id');
+    }
 }

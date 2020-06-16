@@ -7,5 +7,5 @@
 
         <input type="submit" value="Nieuwe gasten">
     </form>
-    <tablet-component menuitems="{{json_encode($menuitems)}}" table="{{$table}}"/>
+    <tablet-component orders="{{$orders}}" menuitems="{{json_encode($menuitems)}}" table="{{$table}}"/>
 @endsection

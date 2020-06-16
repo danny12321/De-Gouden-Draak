@@ -12,9 +12,14 @@ class TabletController extends Controller
 {
     public function index(Table $table)
     {
+        $guestId = $table->lastGuest()->id;
+
+        $orders = Order::where('guest_id', '=', $guestId)->with('orderlines.menuitem')->orderBy('created_at', 'desc')->get();
+
         return view('tablet', [
             'menuitems' => Menuitem::with('MenuitemType')->get(),
             'table' => $table,
+            'orders' => $orders,
         ]);
     }
 
