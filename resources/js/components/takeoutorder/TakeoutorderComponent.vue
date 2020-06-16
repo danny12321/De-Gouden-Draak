@@ -1,6 +1,10 @@
 <template>
   <div class="m-cashdesk">
-    <input v-model="name" type="text" placeholder="banaan" />
+    <div class="form-group">
+      <label for="name">Naam</label>
+      <input v-model="name" class="form-control" type="text" id="name" />
+    </div>
+
 
     <div class="m-cashdesk__gridcontainer">
       <cashdeskmenulist :menuitems="menuitems" @add-menuitem="addMenuitemToOrder"></cashdeskmenulist>

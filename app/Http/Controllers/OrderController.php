@@ -40,6 +40,15 @@ class OrderController extends Controller
                 'menuitem_id' => $orderline['menuitem_id'],
                 'order_id' => $order->id,
             ]);
+
+            foreach($orderline['extraOrder'] as $extraOrder) {
+                Orderline::create([
+                    'amount' => $orderline['amount'],
+                    'description' => null,
+                    'menuitem_id' => $extraOrder['menuitem_id'],
+                    'order_id' => $order->id,
+                ]);
+            }
         }
 
         return $order->id;
