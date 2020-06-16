@@ -129,4 +129,15 @@
             }
         }
     }
+
+    &__history {
+        padding: 10px 0;
+
+        &__order {
+            padding: 16px 30px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 10px;
+        }
+    }
 }

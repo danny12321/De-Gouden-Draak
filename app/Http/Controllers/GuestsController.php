@@ -16,4 +16,13 @@ class GuestsController extends Controller
 
         return Table::with('latestGuest')->get();
     }
+
+    public function store_tablet(Table $table) 
+    {
+        Guest::create([
+            'table_id' => $table['id']
+        ]);
+
+        return redirect()->back();
+    }
 }

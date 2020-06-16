@@ -27,6 +27,8 @@ Vue.component('tables', require('./components/cashdesk/TableComponent.vue').defa
 Vue.component('model-component', require('./components/cashdesk/ExtraOrderModelComponent.vue').default);
 Vue.component('takeoutorder', require('./components/takeoutorder/TakeoutorderComponent.vue').default);
 Vue.component('takeoutorderqr', require('./components/takeoutorder/TakeoutorderQRComponent.vue').default);
+Vue.component('tablet-component', require('./components/tablet/TabletComponent.vue').default);
+Vue.component('order-history-component', require('./components/tablet/OrderHistoryComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

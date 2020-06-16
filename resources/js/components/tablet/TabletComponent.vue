@@ -1,27 +1,23 @@
 <template>
         <div class="m-cashdesk">
-            <div class="m-cashdesk__select--table container">
-                <h3>Geselecteerde tafel</h3>
-                <select name="table" id="table" @change="changeTable($event)">
-                    <option v-for="table in tables" v-bind:key="table.id" v-bind:value="table.id">Tafel: {{table.id}}</option>
-                </select>
-            </div>
-
+            <h2>Bestellen voor tafel {{tableId}}</h2>
             <div class="m-cashdesk__gridcontainer">
                 <cashdeskmenulist :menuitems="menuitems" @add-menuitem="addMenuitemToOrder"></cashdeskmenulist>
                 <cashdesk-order-component :renderComp="renderComponent" :orderItems="menuOrderItems" @show-extra-ordermodel="showExtraOrderModel" @delete-order="deleteOrder" @create-order="createOrder" @delete-item="deleteItem"></cashdesk-order-component>
             </div>
 
             <model-component @add-extra-order="addExtraOrder" :orderItemIndex="extraOrderItemIndex" :menuitems="menuitems" />
+
+            <order-history-component :orders="orders" @add-history-order="addHistoryOrder"/>
         </div>
 </template>
 
 <script>
     export default {
-        props: ['menuitems', 'tables'],
+        props: ['menuitems', 'table', 'orders'],
         methods: {
-            addMenuitemToOrder(menuitem) {
-                this.menuOrderItems.push({menuitem, amount: 1})
+            addMenuitemToOrder(menuitem, amount = 1) {
+                this.menuOrderItems.push({menuitem, amount})
             },
             changeTable(event) {
                 this.activeTable = parseInt(event.target.value)
@@ -49,10 +45,14 @@
                         extraOrder,
                     }
                 })
-                axios.post(`/kassa/order/${this.activeTable}`, { order })
+                axios.post(`/tablet/order/${this.tableId}`, { order })
                 .then(res => {
                     alert("Bestelling geplaatst")
                     location.reload()
+                })
+                .catch(res => {
+                    alert("Je mag niet meer dan een keer per 10 minuten betsellen.")
+                    document.querySelector('.order-button').disabled = false
                 })
             },
             deleteItem(event, orders, index) {
@@ -76,6 +76,12 @@
                     // Add the component back in
                     this.renderComponent = "banaan";
                 });
+            },
+            addHistoryOrder(order) {
+                console.log(order)
+                order.orderlines.forEach(orderline => {
+                    this.addMenuitemToOrder(orderline.menuitem, orderline.amount)
+                });
             }
         },
         data() {
@@ -84,6 +90,7 @@
                 activeTable: 1,
                 extraOrderItemIndex: null,
                 renderComponent: true,
+                tableId: JSON.parse(this.table).id,
             }
         },
         

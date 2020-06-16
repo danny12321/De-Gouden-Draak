@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/tablet/{table}', 'TabletController@index')->name('tablet');
+Route::post('/tablet/order/{table}', 'TabletController@store')->name('tablet_order');
+Route::post('/tablet/{table}/store_guest', 'GuestsController@store_tablet')->name('guest_store_tablet');
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/menu', 'MenuController@index')->name('menu');
 

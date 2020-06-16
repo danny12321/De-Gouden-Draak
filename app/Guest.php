@@ -21,4 +21,9 @@ class Guest extends Model
             $model->created_at = $model->freshTimestamp();
         });
     }
+
+    public function table()
+    {
+        return $this->hasOne('App\Table', 'id', 'table_id');
+    }
 }

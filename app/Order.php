@@ -12,13 +12,22 @@ class Order extends Model
 
     public $timestamps = false;
 
-    public function Orderline()
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->created_at = $model->freshTimestamp();
+        });
+    }
+
+    public function orderlines()
     {
         return $this->hasMany('App\Orderline', 'order_id', 'id');
     }
 
     public function guest()
     {
-        return $this->hasOne('App\guest', 'id', 'guest_id');
+        return $this->hasOne('App\Guest', 'id', 'guest_id');
     }
 }
