@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
 
 class SalesoverviewController extends Controller
@@ -13,6 +14,8 @@ class SalesoverviewController extends Controller
 
     public function index()
     {
-        return view('salesoverview');
+        return view('salesoverview', [
+            'sales' => Order::all()
+        ]);
     }
 }

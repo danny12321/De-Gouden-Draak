@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menuitem;
+use App\Table;
 
-class DishesController extends Controller
+class TableController extends Controller
 {
     public function __construct()
     {
@@ -14,8 +14,8 @@ class DishesController extends Controller
 
     public function index()
     {
-        return view('dishes', [
-            'menuitems' => Menuitem::with('MenuitemType')->get()
+        return view('table', [
+            'tables' => Table::with('latestGuest')->get(),
         ]);
     }
 }
