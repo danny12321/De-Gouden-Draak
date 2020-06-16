@@ -6,7 +6,7 @@
     <div>Ordernummer <b>{{$order->id}}</b></div>
     <div>Naam <b>{{$order->guest->name}}</b></div>
 
-    <takeoutorderqr orderprops="{{$order}}" orderlinesprops="{{$order->orderline}}" guestprops="{{$order->guest}}"></takeoutorderqr>
+    <takeoutorderqr orderprops="{{$order}}" orderlinesprops="{{$order->orderlines}}" guestprops="{{$order->guest}}"></takeoutorderqr>
 
 </div>
 @endsection
