@@ -34,7 +34,7 @@
         methods: {
             filterExtraMenuitems(menuitems) {
                 // Needs to be the same in the database
-                const extraMenuitemId = 3;
+                const extraMenuitemId = 21;
                 return menuitems.filter(item => {
                     return item.menuitem_type_id === extraMenuitemId
                 }).map(item => {
