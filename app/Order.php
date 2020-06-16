@@ -25,4 +25,9 @@ class Order extends Model
     {
         return $this->hasMany('App\Orderline', 'order_id', 'id');
     }
+
+    public function guest()
+    {
+        return $this->hasOne('App\Guest', 'id', 'guest_id');
+    }
 }
