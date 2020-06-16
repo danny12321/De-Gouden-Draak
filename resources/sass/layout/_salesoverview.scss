@@ -1,0 +1,26 @@
+.l-salesoverview {
+    &__sales {
+        &__sale {
+            margin: 30px 0;
+            box-shadow: 1px 1px 10px 1px #8080801c;
+            padding: 20px;
+
+            &__head {
+                &__id {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                &__name {
+                    font-size: 18px;
+                    margin: 0 5px;
+                }
+
+                &__date {
+                    margin-left: auto;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

@@ -4,9 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MenuitemTypes extends Model
+class MenuitemType extends Model
 {
-    //
+    protected $fillable = [
+        'type'
+    ];
+
+    public $timestamps = false;
 
     public function Menuitems()
     {
