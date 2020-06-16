@@ -25,6 +25,8 @@ Vue.component('cashdeskmenulist', require('./components/cashdesk/CashdeskMenulis
 Vue.component('cashdesk-order-component', require('./components/cashdesk/CashdeskOrderComponent.vue').default);
 Vue.component('tables', require('./components/cashdesk/TableComponent.vue').default);
 Vue.component('model-component', require('./components/cashdesk/ExtraOrderModelComponent.vue').default);
+Vue.component('takeoutorder', require('./components/takeoutorder/TakeoutorderComponent.vue').default);
+Vue.component('takeoutorderqr', require('./components/takeoutorder/TakeoutorderQRComponent.vue').default);
 Vue.component('tablet-component', require('./components/tablet/TabletComponent.vue').default);
 Vue.component('order-history-component', require('./components/tablet/OrderHistoryComponent.vue').default);
 

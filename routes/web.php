@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/tablet/{table}', 'TabletController@index')->name('tablet');
 Route::post('/tablet/order/{table}', 'TabletController@store')->name('tablet_order');
 Route::post('/tablet/{table}/store_guest', 'GuestsController@store_tablet')->name('guest_store_tablet');
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/menu', 'MenuController@index')->name('menu');
 
@@ -43,6 +44,10 @@ Route::post('/admin/menuitemtype', 'Admin\MenuItemTypeController@store')->name('
 Route::get('/admin/menuitemtype/{menuitemtype}/edit', 'Admin\MenuItemTypeController@edit')->name('admin.menuitemtype.edit');
 Route::put('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@update')->name('admin.menuitemtype.update');
 Route::delete('/admin/menuitemtype/{menuitemtype}', 'Admin\MenuItemTypeController@destroy')->name('admin.menuitemtype.delete');
+
+Route::get('/order', 'OrderController@index')->name('order');
+Route::get('/order/{order}', 'OrderController@show')->name('order.show');
+Route::post('/order', 'OrderController@store')->name('order.store');
 
 Route::get('/contact', function() {
     return view('contact');
