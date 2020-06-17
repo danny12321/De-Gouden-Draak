@@ -22,6 +22,7 @@ Route::post('/tablet/{table}/store_guest', 'GuestsController@store_tablet')->nam
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/menu', 'MenuController@index')->name('menu');
+Route::get('/menuonly', 'MenuController@show')->name('menuonly');
 
 Route::get('/kassa', 'CashDeskController@index')->name('cashdesk');
 Route::get('/kassa/gerechten', 'DishesController@index')->name('dishes');
