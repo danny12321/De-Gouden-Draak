@@ -26,9 +26,16 @@
         methods: {
             download() {
                 let menu = document.querySelector('#menu');
-                let w = window.open("/menuonly", "Menu")
-                w.print()
-                w.close()
+                let w = window.open("/menuonly", "Menu");
+                w.addEventListener('load', () => {
+                    w.focus();
+
+                    w.onafterprint = () => {
+                        w.close()
+                    }
+
+                    w.print()
+                }, true); 
             },
             generateMenuObject(menuitems) {
                 let menuObject = {}
