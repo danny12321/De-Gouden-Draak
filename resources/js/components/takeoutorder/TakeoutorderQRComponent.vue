@@ -1,32 +1,21 @@
 <template>
   <div>
     <div>
-      <img :src="qrurl" alt="qrcode" />
+      <img class="l-order__qr" :src="qrurl" alt="qrcode" />
     </div>
-    <button v-on:click="print">Print</button>
+    <a class="l-order__download btn btn-primary" id="downloadqr" download="qr.png">Download</a>
   </div>
 </template>
 
 <script>
 export default {
   props: ["orderprops", "orderlinesprops", "guestprops"],
-  methods: {
-    print() {
-      let popup = window.open("target_blank");
-
-      popup.document.write(`<img src="${this.qrurl}">`);
-      popup.focus(); //required for IE
-
-      setTimeout(() => {
-        popup.print();
-        popup.close();
-      }, 100);
-    }
-  },
+  methods: {},
   mounted() {
     const order = JSON.parse(this.orderprops);
     const orderlines = JSON.parse(this.orderlinesprops);
     const guest = JSON.parse(this.guestprops);
+    const link = document.querySelector("#downloadqr");
 
     this.qrurl = `https://api.qrserver.com/v1/create-qr-code/?data=${JSON.stringify(
       {
@@ -34,11 +23,30 @@ export default {
         name: guest.name,
         order: orderlines.map(ol => ol.id)
       }
-    )}&size=220x220&margin=5&bgcolor=255-0-0&color=255-255-255`;
+    )}&size=${this.size}x${this.size}&margin=0`;
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.canvas.width = this.size;
+    ctx.canvas.height = this.size;
+
+    const image = new Image(this.size, this.size);
+    image.crossOrigin = true;
+    image.src = this.qrurl;
+
+    image.onload = () => {
+      ctx.drawImage(image, 0, 0);
+      link.setAttribute("download", "qr.png");
+      link.setAttribute(
+        "href",
+        canvas.toDataURL("image/png").replace("image/png", "image/octet-stream")
+      );
+    };
   },
   data() {
     return {
-      qrurl: ""
+      qrurl: "",
+      size: 220
     };
   }
 };
