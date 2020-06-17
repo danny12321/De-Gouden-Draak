@@ -14,4 +14,11 @@ class MenuController extends Controller
             'menuitems' => Menuitem::with('MenuitemType')->get()
         ]);
     }
+
+    public function show()
+    {
+        return view('menuonly', [
+            'menuitems' => Menuitem::with('MenuitemType')->get()
+        ]);
+    }
 }
